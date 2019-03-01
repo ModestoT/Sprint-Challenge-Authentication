@@ -20,7 +20,7 @@ class RegisterPage extends React.Component {
             .post('/register', user)
             .then( res => {
                 localStorage.setItem('AuthToken', res.data.token);
-                this.props.history.push('/users');
+                this.props.history.push('/jokes');
             })
             .catch(err => console.log(err.response.data.error ));
 

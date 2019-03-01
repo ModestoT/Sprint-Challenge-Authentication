@@ -3,7 +3,7 @@ import { Route, NavLink, withRouter } from 'react-router-dom';
 import './App.css';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
-import UsersList from './components/UsersList';
+import JokesList from './components/JokesList';
 
 class App extends Component {
 
@@ -18,11 +18,11 @@ class App extends Component {
       <div className="App">
         <nav>
           <button onClick={this.signOut}>Signout</button>
-          <NavLink to = "/users">Users</NavLink>
+          <NavLink to = "/jokes">Jokes</NavLink>
         </nav>
         <Route exact path = "/" component={LoginPage} />
         <Route path = "/register" component={RegisterPage} />
-        <Route path = "/users" component={UsersList} />
+        <Route path = "/jokes" component={JokesList} />
       </div>
     );
   }

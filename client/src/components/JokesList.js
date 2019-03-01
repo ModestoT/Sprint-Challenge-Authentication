@@ -1,7 +1,7 @@
 import React from 'react';
 import makeAxios from './axios-config';
 
-class UsersList extends React.Component {
+class JokesList extends React.Component {
     state = {
         jokes: []
     };
@@ -21,7 +21,7 @@ class UsersList extends React.Component {
     render() {
         return (
             <div className='jokes-list-wrapper'>
-                <h1>Users</h1>
+                <h1>Jokes</h1>
                 <div className='jokes'>
                     {this.state.jokes.map( joke => 
                         <div className='joke' key={joke.id}>
@@ -34,4 +34,4 @@ class UsersList extends React.Component {
     }
 }
 
-export default UsersList;
+export default JokesList;
