@@ -17,8 +17,8 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <button onClick={this.signOut}>Signout</button>
           <NavLink to = "/jokes">Jokes</NavLink>
+          <button onClick={this.signOut}>Signout</button>
         </nav>
         <Route exact path = "/" component={LoginPage} />
         <Route path = "/register" component={RegisterPage} />
