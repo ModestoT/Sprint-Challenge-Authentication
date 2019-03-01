@@ -1,5 +1,5 @@
 import React from 'react';
-import makeAxios from '';
+import makeAxios from './axios-config';
 
 class RegisterPage extends React.Component {
     state = {
@@ -16,13 +16,20 @@ class RegisterPage extends React.Component {
         
         const user = {...this.state};
 
-        console.log(user);
+        makeAxios()
+            .post('/register', user)
+            .then( res => {
+                localStorage.setItem('AuthToken', res.data.token);
+                this.props.history.push('/users');
+            })
+            .catch(err => console.log(err.response.data.error ));
 
     }
 
     render() {
         return (
             <div className="register-wrapper">
+                <h1>Register</h1>
                 <form onSubmit={this.register}>
                     <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleInput}/>
                     <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInput}/>

@@ -1,9 +1,9 @@
 import React from 'react';
-import makeAxios from '';
+import makeAxios from './axios-config';
 
 class UsersList extends React.Component {
     state = {
-        users: []
+        jokes: []
     };
 
     componentDidMount(){
@@ -12,20 +12,21 @@ class UsersList extends React.Component {
             alert('Please login to view this information');
         } else {
             makeAxios()
-                .get('users')
-                .then(res => this.setState({ users: res.data }))
+                .get('jokes')
+                .then(res => this.setState({ jokes: res.data }))
                 .catch(err => console.log(err.response.data.error));
         }
     }
 
     render() {
         return (
-            <div className='users-list-wrapper'>
+            <div className='jokes-list-wrapper'>
                 <h1>Users</h1>
-                <div className='users'>
-                    {this.state.users.map( user => 
-                        <div className='user' key={user.id}>
-                            <h2>{user.username}</h2>
+                <div className='jokes'>
+                    {this.state.jokes.map( joke => 
+                        <div className='joke' key={joke.id}>
+                            <p>ID: {joke.id}</p>
+                            <h2>Joke: {joke.joke}</h2>
                         </div>)}
                 </div>
             </div>
