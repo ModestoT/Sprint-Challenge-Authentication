@@ -8,7 +8,7 @@ module.exports = {
 
 function getUserBy(username){
     return db('users')
-        .where({ username })
+        .where(username)
         .first();
 }
 
